@@ -1,0 +1,41 @@
+@use "../pages/index.scss" as v;
+
+
+// Navbar CSS
+.nav-container{
+    margin: 3.125em 6.25em
+}
+.nav-container div, .nav-container a{
+    display: inline-block;
+    margin: 1rem;
+}
+.logo{
+    cursor:default;
+}
+.nav-items{
+    float: right;
+}
+.nav-items div, .nav-items a{
+    cursor: pointer;
+    &:hover{
+        color: v.$a-color-2-400;
+    }
+}
+
+// Featured Events CSS
+
+.event-container{
+    margin: 3.125em 6.25em;
+}
+.events-wrap{
+    margin: 6.25em 0em;
+    display: flex;
+    justify-content: space-between;
+}
+.event-item{
+    cursor: pointer;
+}
+.featured-body{
+    text-align: center;
+    margin: 1.5em 0em;
+}
