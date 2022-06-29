@@ -39,3 +39,62 @@
     text-align: center;
     margin: 1.5em 0em;
 }
+
+// odds slider
+
+.odds-slider-wrapper{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: fade-out(v.$d-color, .3);
+    top: 0;
+    left: 0;
+    z-index: 10;
+    visibility: collapse;
+}
+.odds-slider-wrapper-open{
+    visibility: visible;
+}
+.odds-slider-wrapper h1{
+    color: v.$l-color;
+}
+.odds-slider{
+    position: relative;
+    height: 60%;
+    width: 100%;
+    background-color: v.$a-color-2-800;
+    top: 150%;
+    border-radius: 50px 50px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: top .3s ease;
+}
+.odds-slider-open{
+    top: 40%;
+}
+.slider-content{
+    display: flex;
+    flex-direction: row;
+}
+.slider-content .heading{
+    margin: 1em 2em;
+    color: v.$l-color;
+}
+.row1 ul, .row2 ul{
+    list-style: none;
+    border: 2px solid v.$l-color;
+    padding: 1em 1.5em;
+}
+.row1 .odds, .row2 .odds{
+    font-size: 5ch;
+}
+.row1 .bet-avail, .row2 .bet-avail{
+    text-align: right;
+}
+.second-cell{
+    background-color: v.$d-color;
+}
+.third-cell{
+    background-color: v.$a-color-1;
+}
