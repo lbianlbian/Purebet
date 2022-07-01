@@ -36,8 +36,8 @@ const Featured = () => {
     { home: "George Washington", away: "Abraham Lincoln" },
     { home: "100 Thieves", away: "FaZe Clan" },
     { home: "USC Trojans", away: "Northwestern Wildcats" },
-    { home: "Betting Sims will Win", away: "Betting Sims will Lose" },
     { home: "Los Angeles Lakers", away: "Chicago Bulls" },
+    { home: "Betting Sims will Win", away: "Betting Sims will Lose" },
   ];
 
   return (
@@ -83,7 +83,7 @@ const Featured = () => {
             Northwestern Wildcats
           </p>
         </div>
-        <div className="event-item" onClick={() => toggleSlider(4)}>
+        <div className="event-item" onClick={() => toggleSlider(5)}>
           <StaticImage
             src="../images/Rectangle 11.png"
             alt="event-image"
@@ -96,7 +96,7 @@ const Featured = () => {
             Betting Sims will Lose
           </p>
         </div>
-        <div className="event-item" onClick={() => toggleSlider(5)}>
+        <div className="event-item" onClick={() => toggleSlider(4)}>
           <StaticImage
             src="../images/Group 4.png"
             alt="event-image"
@@ -124,19 +124,25 @@ const Featured = () => {
                 <div className="ho">
                   <ul className="first-cell">
                     <li className="odds body-text">{odds.home[0].odds}</li>
-                    <li className="bet-avail body-text">234 SOL</li>
+                    <li className="bet-avail body-text">
+                      {odds.home[0].stake} SOL
+                    </li>
                   </ul>
                 </div>
                 <div className="sho">
                   <ul className="second-cell">
                     <li className="odds body-text">{odds.home[1].odds}</li>
-                    <li className="bet-avail body-text">24 SOL</li>
+                    <li className="bet-avail body-text">
+                      {odds.home[1].stake} SOL
+                    </li>
                   </ul>
                 </div>
                 <div className="tho">
                   <ul className="third-cell">
                     <li className="odds body-text">{odds.home[2].odds}</li>
-                    <li className="bet-avail body-text">114 SOL</li>
+                    <li className="bet-avail body-text">
+                      {odds.home[2].stake} SOL
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -145,19 +151,25 @@ const Featured = () => {
                 <div className="ho">
                   <ul className="first-cell">
                     <li className="odds body-text">{odds.away[0].odds}</li>
-                    <li className="bet-avail body-text">234 SOL</li>
+                    <li className="bet-avail body-text">
+                      {odds.away[0].stake} SOL
+                    </li>
                   </ul>
                 </div>
                 <div className="sho">
                   <ul className="second-cell">
                     <li className="odds body-text">{odds.away[1].odds}</li>
-                    <li className="bet-avail body-text">24 SOL</li>
+                    <li className="bet-avail body-text">
+                      {odds.away[1].stake} SOL
+                    </li>
                   </ul>
                 </div>
                 <div className="tho">
                   <ul className="third-cell">
                     <li className="odds body-text">{odds.away[2].odds}</li>
-                    <li className="bet-avail body-text">114 SOL</li>
+                    <li className="bet-avail body-text">
+                      {odds.away[2].stake} SOL
+                    </li>
                   </ul>
                 </div>
               </div>
