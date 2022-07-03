@@ -42,7 +42,7 @@
 
 // odds slider
 
-.odds-slider-wrapper{
+.odds-slider-wrapper, .betting-wrapper{
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -51,27 +51,32 @@
     left: 0;
     z-index: 10;
     visibility: collapse;
+    transition: visibility .3s ease;
 }
-.odds-slider-wrapper-open{
+.odds-slider-wrapper-open, .betting-wrapper-open{
     visibility: visible;
 }
 .odds-slider-wrapper h1{
     color: v.$l-color;
 }
 .odds-slider{
-    position: relative;
+    position: fixed;
     height: 60%;
     width: 100%;
     background-color: v.$a-color-2-800;
     top: 150%;
+    left: 0;
     border-radius: 50px 50px 0px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: top .3s ease;
+    visibility: hidden;
+    transition: top .3s ease, visibility .3s ease;
+    z-index: 11;
 }
 .odds-slider-open{
     top: 40%;
+    visibility: visible;
 }
 .slider-content{
     display: flex;
@@ -97,4 +102,57 @@
 }
 .third-cell{
     background-color: v.$a-color-1;
+}
+
+
+// Betting Slip
+
+
+.betting-container{
+    height: 75%;
+    width: 50%;
+    position: fixed;
+    top: 5%;
+    right: -150%;
+    background-color: v.$a-color-2-800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px 0px 0px 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 11;
+    transition: right .3s ease;
+}
+.betting-container-open{
+    right: 0%;
+}
+.betting-content label{
+    color: v.$l-color;
+    margin: .5em 0em;
+}
+.betting-content input{
+    border: 2px solid v.$l-color;
+    padding: .5em 1em;
+    background-color: transparent;
+    border-radius: 5px;
+    width: 100%;
+    margin: .5em 0em .5em 0em;
+}
+.betting-content button{
+    width: 100%;
+    padding: .5em 1em;
+    color: v.$d-color;
+    border: 2px solid v.$l-color;
+    border-radius: 10px;
+    margin-top: 2em;
+    cursor: pointer;
+}
+.betting-content button:hover{
+    background-color: v.$d-color;
+    color: v.$a-color-2-400;
+    border-color: v.$a-color-2-400;
+}
+
+.hidden-data{
+    visibility: visible;
 }

@@ -3,7 +3,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import axios from "axios";
 import "./component.scss";
 
-const Featured = () => {
+const Featured = ({ toggleBetSlip }) => {
   const [odds, setOdds] = useState(null);
   const [isSliderOpen, setisSliderOpen] = useState();
   const [eventId, setEventId] = useState();
@@ -115,69 +115,140 @@ const Featured = () => {
           isSliderOpen && "odds-slider-wrapper-open"
         }`}
         onClick={closeSlider}
-      >
-        <div className={`odds-slider ${isSliderOpen && "odds-slider-open"}`}>
-          {odds ? (
-            <div className="slider-content">
-              <div className="row1">
-                <div className="heading">{events[eventId].home}</div>
-                <div className="ho">
-                  <ul className="first-cell">
-                    <li className="odds body-text">{odds.home[0].odds}</li>
-                    <li className="bet-avail body-text">
-                      {odds.home[0].stake} SOL
-                    </li>
-                  </ul>
-                </div>
-                <div className="sho">
-                  <ul className="second-cell">
-                    <li className="odds body-text">{odds.home[1].odds}</li>
-                    <li className="bet-avail body-text">
-                      {odds.home[1].stake} SOL
-                    </li>
-                  </ul>
-                </div>
-                <div className="tho">
-                  <ul className="third-cell">
-                    <li className="odds body-text">{odds.home[2].odds}</li>
-                    <li className="bet-avail body-text">
-                      {odds.home[2].stake} SOL
-                    </li>
-                  </ul>
-                </div>
+      ></div>
+      <div className={`odds-slider ${isSliderOpen && "odds-slider-open"}`}>
+        {odds ? (
+          <div className="slider-content">
+            <div className="row1">
+              <div className="heading">{events[eventId].home}</div>
+              <div className="ho">
+                <ul
+                  className="first-cell"
+                  onClick={() => {
+                    toggleBetSlip(
+                      odds.home[0].odds,
+                      odds.home[0].stake,
+                      0,
+                      odds.home[0].acc,
+                      eventId
+                    );
+                    closeSlider();
+                  }}
+                >
+                  <li className="odds body-text">{odds.home[0].odds}</li>
+                  <li className="bet-avail body-text">
+                    {odds.home[0].stake} SOL
+                  </li>
+                </ul>
               </div>
-              <div className="row2">
-                <div className="heading">{events[eventId].away}</div>
-                <div className="ho">
-                  <ul className="first-cell">
-                    <li className="odds body-text">{odds.away[0].odds}</li>
-                    <li className="bet-avail body-text">
-                      {odds.away[0].stake} SOL
-                    </li>
-                  </ul>
-                </div>
-                <div className="sho">
-                  <ul className="second-cell">
-                    <li className="odds body-text">{odds.away[1].odds}</li>
-                    <li className="bet-avail body-text">
-                      {odds.away[1].stake} SOL
-                    </li>
-                  </ul>
-                </div>
-                <div className="tho">
-                  <ul className="third-cell">
-                    <li className="odds body-text">{odds.away[2].odds}</li>
-                    <li className="bet-avail body-text">
-                      {odds.away[2].stake} SOL
-                    </li>
-                  </ul>
-                </div>
+              <div className="sho">
+                <ul
+                  className="second-cell"
+                  onClick={() => {
+                    toggleBetSlip(
+                      odds.home[1].odds,
+                      odds.home[1].stake,
+                      0,
+                      odds.home[1].acc,
+                      eventId
+                    );
+                    closeSlider();
+                  }}
+                >
+                  <li className="odds body-text">{odds.home[1].odds}</li>
+                  <li className="bet-avail body-text">
+                    {odds.home[1].stake} SOL
+                  </li>
+                </ul>
+              </div>
+              <div className="tho">
+                <ul
+                  className="third-cell"
+                  onClick={() => {
+                    toggleBetSlip(
+                      odds.home[2].odds,
+                      odds.home[2].stake,
+                      0,
+                      odds.home[2].acc,
+                      eventId
+                    );
+                    closeSlider();
+                  }}
+                >
+                  <li className="odds body-text">{odds.home[2].odds}</li>
+                  <li className="bet-avail body-text">
+                    {odds.home[2].stake} SOL
+                  </li>
+                </ul>
               </div>
             </div>
-          ) : (
-            <h1 className="heading">Loading</h1>
-          )}
-        </div>
+            <div className="row2">
+              <div className="heading">{events[eventId].away}</div>
+              <div className="ho">
+                <ul
+                  className="first-cell"
+                  onClick={() => {
+                    toggleBetSlip(
+                      odds.away[0].odds,
+                      odds.away[0].stake,
+                      1,
+                      odds.away[0].acc,
+                      eventId
+                    );
+                    closeSlider();
+                  }}
+                >
+                  <li className="odds body-text">{odds.away[0].odds}</li>
+                  <li className="bet-avail body-text">
+                    {odds.away[0].stake} SOL
+                  </li>
+                </ul>
+              </div>
+              <div className="sho">
+                <ul
+                  className="second-cell"
+                  onClick={() => {
+                    toggleBetSlip(
+                      odds.away[1].odds,
+                      odds.away[1].stake,
+                      1,
+                      odds.away[1].acc,
+                      eventId
+                    );
+                    closeSlider();
+                  }}
+                >
+                  <li className="odds body-text">{odds.away[1].odds}</li>
+                  <li className="bet-avail body-text">
+                    {odds.away[1].stake} SOL
+                  </li>
+                </ul>
+              </div>
+              <div className="tho">
+                <ul
+                  className="third-cell"
+                  onClick={() => {
+                    toggleBetSlip(
+                      odds.away[2].odds,
+                      odds.away[2].stake,
+                      1,
+                      odds.away[2].acc,
+                      eventId
+                    );
+                    closeSlider();
+                  }}
+                >
+                  <li className="odds body-text">{odds.away[2].odds}</li>
+                  <li className="bet-avail body-text">
+                    {odds.away[2].stake} SOL
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <h1 className="heading">Loading</h1>
+        )}
       </div>
     </div>
   );
