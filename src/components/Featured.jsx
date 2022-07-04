@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import { axios } from "axios";
+import axios from "axios";
 import "./component.scss";
 
 const Featured = ({ toggleBetSlip }) => {
@@ -10,6 +10,7 @@ const Featured = ({ toggleBetSlip }) => {
 
   const toggleSlider = (id) => {
     setisSliderOpen(true);
+    console.log(id);
     axios
       .get(
         `https://script.google.com/macros/s/AKfycbwnHC3Apglmz8YADs5Iyw2_W2PbZL_7ytFunadNpBs2OPhMiG9Xyb3RvHnOoVXG0fUu/exec?id2=${id}`
