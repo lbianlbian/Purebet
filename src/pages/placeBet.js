@@ -12,7 +12,8 @@ var connection = new solanaWeb3.Connection(
 
 const phantom_connect = function () {
   var provider = () => {
-    if ("solana" in window) {
+    if ("solana" in typeof window) {
+      //added typeof
       var provider = window.solana;
       globalProvider = provider;
       if (provider.isPhantom) {
