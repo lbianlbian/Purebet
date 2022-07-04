@@ -10,7 +10,7 @@ var connection = new solanaWeb3.Connection(
   "confirmed"
 );
 
-function phantom_connect() {
+const phantom_connect = function () {
   var provider = () => {
     if ("solana" in window) {
       var provider = window.solana;
@@ -36,7 +36,7 @@ function phantom_connect() {
       console.log("Connection Cancelled!");
     }
   }
-}
+};
 export default phantom_connect;
 
 async function startBet(id1, id2, ha, odds, amnt) {
