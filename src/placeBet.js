@@ -1,6 +1,6 @@
 var globalKey;
 var globalProvider;
-var solanaWeb3 = require("../../node_modules/@solana/web3.js");
+var solanaWeb3 = require("@solana/web3.js");
 var programID = new solanaWeb3.PublicKey(
   "FxQDLqSJ2Y3Hn4vUZHVVMhzaUnvhbbhG1yiFad2uHfFy"
 );
@@ -12,8 +12,7 @@ var connection = new solanaWeb3.Connection(
 
 const phantom_connect = function () {
   var provider = () => {
-    if ("solana" in typeof window) {
-      //added typeof
+    if ("solana" in window) {
       var provider = window.solana;
       globalProvider = provider;
       if (provider.isPhantom) {

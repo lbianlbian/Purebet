@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import phantom_connect from "../pages/placeBet";
+import phantom_connect from "../placeBet";
 
 const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
   const [total, setTotal] = useState();
