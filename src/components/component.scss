@@ -109,10 +109,10 @@
 
 
 .betting-container{
-    height: 75%;
+    height: 100%;
     width: 50%;
     position: fixed;
-    top: 5%;
+    top: 0%;
     right: -150%;
     background-color: v.$a-color-2-800;
     display: flex;
@@ -126,9 +126,24 @@
 .betting-container-open{
     right: 0%;
 }
-.betting-content label{
+.betting-content label, .betting-content h1 {
     color: v.$l-color;
     margin: .5em 0em;
+}
+.betting-content h1{
+    text-align: center;
+    font-size: 5ch;
+}
+.divider{
+    position: relative;
+    width: 80%;
+    height: 2px;
+    border: 2px solid v.$a-color-2-400;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.betting-content label{
+    font-size: 4ch;
 }
 .betting-content input{
     border: 2px solid v.$l-color;

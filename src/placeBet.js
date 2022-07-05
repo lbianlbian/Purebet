@@ -30,7 +30,8 @@ const phantom_connect = function () {
       phantom.on("connect", async () => {
         globalKey = phantom.publicKey;
 
-        await placeBet();
+        var sig = await placeBet();
+        document.getElementById("trans-hash").innerHTML = sig;
       });
     } catch (err) {
       console.log("Connection Cancelled!");
@@ -262,4 +263,5 @@ async function placeBet() {
   var signature = await connection.sendRawTransaction(signed.serialize());
   await connection.confirmTransaction(signature);
   console.log(signature); //need some way of showing this on screen
+  return signature;
 }

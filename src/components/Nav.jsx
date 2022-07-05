@@ -5,7 +5,7 @@ import "./component.scss";
 const Nav = () => {
   return (
     <nav className="nav-container">
-      <div className="heading logo">Betting Sims.</div>
+      <div className="heading logo">PureBet.</div>
       <div className="nav-items">
         <Link to="/" className="body-text">
           Home

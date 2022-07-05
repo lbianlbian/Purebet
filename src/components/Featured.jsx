@@ -6,24 +6,18 @@ import "./component.scss";
 const Featured = ({ toggleBetSlip }) => {
   const [odds, setOdds] = useState(null);
   const [isSliderOpen, setisSliderOpen] = useState();
-  const [eventId, setEventId] = useState();
+  const [eventId, setEventId] = useState(0);
 
   const toggleSlider = (id) => {
     setisSliderOpen(true);
-    console.log(id);
     axios
       .get(
         `https://script.google.com/macros/s/AKfycbwnHC3Apglmz8YADs5Iyw2_W2PbZL_7ytFunadNpBs2OPhMiG9Xyb3RvHnOoVXG0fUu/exec?id2=${id}`
       )
       .then(function (response) {
-        // handle success
-        console.log(response.data.home);
-        var arr = response.data.home;
-        console.log(arr[1]);
         setOdds(response.data);
       })
       .catch(function (error) {
-        // handle error
         console.log(error);
       });
     setEventId(id - 1);
@@ -131,7 +125,9 @@ const Featured = ({ toggleBetSlip }) => {
                       odds.home[0].stake,
                       0,
                       odds.home[0].acc,
-                      eventId
+                      eventId,
+                      events[eventId].home,
+                      events[eventId].away
                     );
                     closeSlider();
                   }}
@@ -151,7 +147,9 @@ const Featured = ({ toggleBetSlip }) => {
                       odds.home[1].stake,
                       0,
                       odds.home[1].acc,
-                      eventId
+                      eventId,
+                      events[eventId].home,
+                      events[eventId].away
                     );
                     closeSlider();
                   }}
@@ -171,7 +169,9 @@ const Featured = ({ toggleBetSlip }) => {
                       odds.home[2].stake,
                       0,
                       odds.home[2].acc,
-                      eventId
+                      eventId,
+                      events[eventId].home,
+                      events[eventId].away
                     );
                     closeSlider();
                   }}
@@ -194,7 +194,9 @@ const Featured = ({ toggleBetSlip }) => {
                       odds.away[0].stake,
                       1,
                       odds.away[0].acc,
-                      eventId
+                      eventId,
+                      events[eventId].home,
+                      events[eventId].away
                     );
                     closeSlider();
                   }}
@@ -214,7 +216,9 @@ const Featured = ({ toggleBetSlip }) => {
                       odds.away[1].stake,
                       1,
                       odds.away[1].acc,
-                      eventId
+                      eventId,
+                      events[eventId].home,
+                      events[eventId].away
                     );
                     closeSlider();
                   }}
@@ -234,7 +238,9 @@ const Featured = ({ toggleBetSlip }) => {
                       odds.away[2].stake,
                       1,
                       odds.away[2].acc,
-                      eventId
+                      eventId,
+                      events[eventId].home,
+                      events[eventId].away
                     );
                     closeSlider();
                   }}

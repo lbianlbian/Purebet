@@ -6,6 +6,7 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
   const [total, setTotal] = useState();
   const [Odds, setOdds] = useState(betData.betOdds);
   const [Stake, setStake] = useState(betData.betStake);
+  const [Hash, setHash] = useState(null);
 
   useEffect(() => {
     setOdds(betData.betOdds);
@@ -23,10 +24,16 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
   const handleStake = (e) => {
     setStake(e.target.value);
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     phantom_connect();
+    // setHash(sig);
+    // console.log(Hash);
+    // (async () => {
+    //   console.log(await phantom_connect());
+    // })();
   };
+  // console.log(Hash);
 
   return (
     <div>
@@ -40,6 +47,14 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
         }`}
       >
         <div className="betting-content">
+          <h1 className="heading">
+            {betData.homeTeam} <br /> VS <br /> {betData.awayTeam}
+          </h1>
+          <div className="divider"></div>
+          <h1 className="heading">
+            Backing{" "}
+            {betData.homeAway == 0 ? betData.homeTeam : betData.awayTeam}
+          </h1>
           <form action="">
             <label htmlFor="odds" className="heading">
               Odds
@@ -89,6 +104,10 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
             <p id="originalStake">{betData.betStake}</p>
           </div>
         </div>
+      </div>
+      <div className="success-popup">
+        <h1 className="heading">Transaction Successful!</h1>
+        <h1 id="trans-hash" className="heading"></h1>
       </div>
     </div>
   );
