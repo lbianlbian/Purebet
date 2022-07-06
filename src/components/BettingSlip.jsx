@@ -6,7 +6,8 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
   const [total, setTotal] = useState();
   const [Odds, setOdds] = useState(betData.betOdds);
   const [Stake, setStake] = useState(betData.betStake);
-  const [Hash, setHash] = useState(null);
+  const [Hash, setHash] = useState();
+  const [success, setSuccess] = useState();
 
   useEffect(() => {
     setOdds(betData.betOdds);
@@ -27,13 +28,20 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     phantom_connect();
-    // setHash(sig);
-    // console.log(Hash);
-    // (async () => {
-    //   console.log(await phantom_connect());
-    // })();
+    setSuccess(true);
+    closeBetSlip();
   };
-  // console.log(Hash);
+  useEffect(() => {
+    let hashId = document.getElementById("trans-hash").innerHTML;
+    if (hashId === "") {
+      setHash(true);
+    } else {
+      setHash(false);
+    }
+  }, []);
+  const closeSuccess = () => {
+    setSuccess(false);
+  };
 
   return (
     <div>
@@ -89,6 +97,7 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
               id="total-bet"
               className="body-text"
               value={total}
+              readonly
             />
             <br />
             <button className="place-bet body-text" onClick={handleSubmit}>
@@ -105,9 +114,20 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
           </div>
         </div>
       </div>
-      <div className="success-popup">
-        <h1 className="heading">Transaction Successful!</h1>
-        <h1 id="trans-hash" className="heading"></h1>
+      <div
+        className={`success-wrapper ${success && "success-wrapper-open"}`}
+        onClick={closeSuccess}
+      ></div>
+      <div className={`success-popup ${success && "success-popup-open"}`}>
+        {Hash ? (
+          <h1 className="heading">Waiting...</h1>
+        ) : (
+          <div className="success-msg">
+            <h1 className="heading">Transaction Successful!</h1>
+            <div className="divider"></div>
+            <h1 id="trans-hash" className="heading"></h1>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -240,6 +240,10 @@ async function placeBet() {
     signal = "start";
   } else if (stake != originalStake) {
     signal = "partial match";
+  } else if (stake < originalStake) {
+    signal = "partial match";
+  } else if (stake > originalStake) {
+    signal = "overmatch";
   }
 
   var transaction;
@@ -249,6 +253,10 @@ async function placeBet() {
     transaction = await matchBet(acc, stake);
   } else if (signal == "partial match") {
     transaction = await partialMatch(id1, id2, odds, ha, acc, stake);
+  } else if (signal == "overmatch") {
+    var startAmount = stake - originalStake;
+    transaction = await matchBet(acc, originalStake);
+    transaction.add(await startBet(id1, id2, ha, odds, startAmount));
   }
 
   if (transaction == "You are below the minimum bet size.") {

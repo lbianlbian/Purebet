@@ -84,11 +84,11 @@ const Featured = ({ toggleBetSlip }) => {
             alt="event-image"
           ></StaticImage>
           <p className="featured-body body-text">
-            Betting Sims will Win
+            PureBet will Win
             <br />
             VS
             <br />
-            Betting Sims will Lose
+            PureBet will Lose
           </p>
         </div>
         <div className="event-item" onClick={() => toggleSlider(4)}>

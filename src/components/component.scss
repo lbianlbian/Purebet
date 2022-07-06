@@ -42,7 +42,7 @@
 
 // odds slider
 
-.odds-slider-wrapper, .betting-wrapper{
+.odds-slider-wrapper, .betting-wrapper, .success-wrapper{
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -53,7 +53,7 @@
     visibility: collapse;
     transition: visibility .3s ease;
 }
-.odds-slider-wrapper-open, .betting-wrapper-open{
+.odds-slider-wrapper-open, .betting-wrapper-open, .success-wrapper-open{
     visibility: visible;
 }
 .odds-slider-wrapper h1{
@@ -98,10 +98,10 @@
     text-align: right;
 }
 .second-cell{
-    background-color: v.$d-color;
+    background-color: #18A999;
 }
 .third-cell{
-    background-color: v.$a-color-1;
+    background-color: #18A999;
 }
 
 
@@ -153,6 +153,11 @@
     width: 100%;
     margin: .5em 0em .5em 0em;
 }
+#stake::after{
+    position: absolute;
+    content: "SOL";
+
+}
 .betting-content button{
     width: 100%;
     padding: .5em 1em;
@@ -169,5 +174,41 @@
 }
 
 .hidden-data{
+    visibility: hidden;
+}
+
+.first-cell{
+    background-color: #109648;
+}
+
+
+// Success Popup
+
+.success-popup{
+    width: 80vw;
+    height: 20vw;
+    background-color: v.$a-color-2-800;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 11;
+    visibility: collapse;
+    transition: visibility .3s ease;
+}
+.success-popup-open{
     visibility: visible;
+}
+.success-popup .heading{
+    color: v.$l-color;
+    text-align: center;
+    margin: 1em;
+}
+#trans-hash{
+    font-size: 2ch;
 }
