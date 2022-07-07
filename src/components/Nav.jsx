@@ -10,9 +10,11 @@ const Nav = () => {
         <Link to="/" className="body-text">
           Home
         </Link>
-        <div className="body-text">Featured Events</div>
         <Link to="/About" className="body-text">
           About
+        </Link>
+        <Link to="/HowToUse" className="body-text">
+          How To Use
         </Link>
       </div>
     </nav>

@@ -32,7 +32,11 @@ const Featured = ({ toggleBetSlip }) => {
     { home: "100 Thieves", away: "FaZe Clan" },
     { home: "USC Trojans", away: "Northwestern Wildcats" },
     { home: "Los Angeles Lakers", away: "Chicago Bulls" },
-    { home: "Betting Sims will Win", away: "Betting Sims will Lose" },
+    { home: "PureBet will Win", away: "PureBet will Lose" },
+    {
+      home: "Bitcoin above $20K on 31st July",
+      away: "Bitcoin below $20K on 31st July",
+    },
   ];
 
   return (
@@ -104,6 +108,19 @@ const Featured = ({ toggleBetSlip }) => {
             Chicago Bulls
           </p>
         </div>
+        <div className="event-item" onClick={() => toggleSlider(6)}>
+          <StaticImage
+            src="../images/bitcoin.png"
+            alt="event-image"
+          ></StaticImage>
+          <p className="featured-body body-text">
+            Bitcoin above $20K (31st July)
+            <br />
+            VS
+            <br />
+            Bitcoin below $20K (31st July)
+          </p>
+        </div>
       </div>
       <div
         className={`odds-slider-wrapper ${
@@ -129,7 +146,6 @@ const Featured = ({ toggleBetSlip }) => {
                       events[eventId].home,
                       events[eventId].away
                     );
-                    closeSlider();
                   }}
                 >
                   <li className="odds body-text">{odds.home[0].odds}</li>
@@ -151,7 +167,6 @@ const Featured = ({ toggleBetSlip }) => {
                       events[eventId].home,
                       events[eventId].away
                     );
-                    closeSlider();
                   }}
                 >
                   <li className="odds body-text">{odds.home[1].odds}</li>
@@ -173,7 +188,6 @@ const Featured = ({ toggleBetSlip }) => {
                       events[eventId].home,
                       events[eventId].away
                     );
-                    closeSlider();
                   }}
                 >
                   <li className="odds body-text">{odds.home[2].odds}</li>
@@ -198,7 +212,6 @@ const Featured = ({ toggleBetSlip }) => {
                       events[eventId].home,
                       events[eventId].away
                     );
-                    closeSlider();
                   }}
                 >
                   <li className="odds body-text">{odds.away[0].odds}</li>
@@ -220,7 +233,6 @@ const Featured = ({ toggleBetSlip }) => {
                       events[eventId].home,
                       events[eventId].away
                     );
-                    closeSlider();
                   }}
                 >
                   <li className="odds body-text">{odds.away[1].odds}</li>
@@ -242,7 +254,6 @@ const Featured = ({ toggleBetSlip }) => {
                       events[eventId].home,
                       events[eventId].away
                     );
-                    closeSlider();
                   }}
                 >
                   <li className="odds body-text">{odds.away[2].odds}</li>

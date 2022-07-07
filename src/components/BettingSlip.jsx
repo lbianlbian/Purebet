@@ -1,12 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import phantom_connect from "../placeBet";
+import $ from "jquery";
 
 const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
   const [total, setTotal] = useState();
   const [Odds, setOdds] = useState(betData.betOdds);
   const [Stake, setStake] = useState(betData.betStake);
-  const [Hash, setHash] = useState();
+  const [Hash, setHash] = useState(false);
   const [success, setSuccess] = useState();
 
   useEffect(() => {
@@ -32,15 +33,17 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
     closeBetSlip();
   };
   useEffect(() => {
-    let hashId = document.getElementById("trans-hash").innerHTML;
+    let hashId = document.querySelector("#trans-hash").innerText;
     if (hashId === "") {
-      setHash(true);
-    } else {
       setHash(false);
+    } else {
+      setHash(true);
     }
   }, []);
   const closeSuccess = () => {
     setSuccess(false);
+    setHash(false);
+    document.querySelector("#trans-hash").innerText = "";
   };
 
   return (
@@ -87,6 +90,12 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
               onChange={handleStake}
               value={Stake}
             />
+            <input
+              type="text"
+              className="body-text crypto-type"
+              value={"SOL"}
+              readonly
+            />
             <br />
             <label htmlFor="total-bet" className="heading">
               Total Winnings
@@ -97,6 +106,12 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
               id="total-bet"
               className="body-text"
               value={total}
+              readonly
+            />
+            <input
+              type="text"
+              className="body-text crypto-type"
+              value={"SOL"}
               readonly
             />
             <br />
@@ -120,14 +135,14 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
       ></div>
       <div className={`success-popup ${success && "success-popup-open"}`}>
         {Hash ? (
-          <h1 className="heading">Waiting...</h1>
-        ) : (
           <div className="success-msg">
             <h1 className="heading">Transaction Successful!</h1>
             <div className="divider"></div>
-            <h1 id="trans-hash" className="heading"></h1>
           </div>
+        ) : (
+          <h1 className="heading">Waiting...</h1>
         )}
+        <h1 id="trans-hash" className="heading"></h1>
       </div>
     </div>
   );

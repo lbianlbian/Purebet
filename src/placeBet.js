@@ -31,6 +31,7 @@ const phantom_connect = function () {
         globalKey = phantom.publicKey;
 
         var sig = await placeBet();
+        // document.getElementById("trans-hash-hidden").innerHTML = sig;
         document.getElementById("trans-hash").innerHTML = sig;
       });
     } catch (err) {
@@ -238,8 +239,6 @@ async function placeBet() {
 
   if (odds != originalOdds) {
     signal = "start";
-  } else if (stake != originalStake) {
-    signal = "partial match";
   } else if (stake < originalStake) {
     signal = "partial match";
   } else if (stake > originalStake) {
