@@ -67,6 +67,30 @@ a{
     }
 }
 
+// Pending bets
+
+.p-bets{
+    display: flex;
+    justify-content: space-around;
+}
+.pb-row{
+    flex: 1;
+}
+.pb-row .heading{
+    font-size: 3ch;
+}
+.pb-row .body-text{
+    font-size: 2ch;
+}
+.pb-row h4{
+    height: 7em;
+}
+
+
+
+
+
+
 // media queries
 
 @media (max-width: 1440px) {
