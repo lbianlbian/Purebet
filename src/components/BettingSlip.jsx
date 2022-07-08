@@ -7,7 +7,7 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
   const [total, setTotal] = useState();
   const [Odds, setOdds] = useState(betData.betOdds);
   const [Stake, setStake] = useState(betData.betStake);
-  const [Hash, setHash] = useState(false);
+  const [Hash, setHash] = useState();
   const [success, setSuccess] = useState();
 
   useEffect(() => {
@@ -34,12 +34,16 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
   };
   useEffect(() => {
     let hashId = document.querySelector("#trans-hash").innerText;
-    if (hashId === "") {
-      setHash(false);
-    } else {
-      setHash(true);
-    }
+    console.log(hashId);
+    // if (hashId !== "") {
+    //   setHash(true);
+    // } else {
+    //   setHash(false);
+    // }
   }, []);
+  // const handleHash = () => {
+  //   setHash(true);
+  // };
   const closeSuccess = () => {
     setSuccess(false);
     setHash(false);
@@ -134,15 +138,14 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
         onClick={closeSuccess}
       ></div>
       <div className={`success-popup ${success && "success-popup-open"}`}>
-        {Hash ? (
-          <div className="success-msg">
-            <h1 className="heading">Transaction Successful!</h1>
-            <div className="divider"></div>
-          </div>
-        ) : (
-          <h1 className="heading">Waiting...</h1>
-        )}
-        <h1 id="trans-hash" className="heading"></h1>
+        <div className="success-msg">
+          <h1 className="heading">
+            Please place your bet on the Phantom Wallet popup. Your Solana
+            transaction hash will appear below when your bet is confirmed.
+          </h1>
+          <div className="divider"></div>
+          <h1 id="trans-hash" className="heading"></h1>
+        </div>
       </div>
     </div>
   );

@@ -31,7 +31,6 @@ const phantom_connect = function () {
         globalKey = phantom.publicKey;
 
         var sig = await placeBet();
-        // document.getElementById("trans-hash-hidden").innerHTML = sig;
         document.getElementById("trans-hash").innerHTML = sig;
       });
     } catch (err) {

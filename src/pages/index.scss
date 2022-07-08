@@ -48,3 +48,50 @@ body{
 a{
     color: $a-color-2-400;
 }
+
+//HTU page
+
+.about-body ul{
+    list-style-type: none;
+}
+.about-body li{
+    margin: 1em;
+
+    &::before{
+        content: "\0023";
+        color: $a-color-2-400;
+        display: inline-block;
+        font-size: 3ch;
+        margin-right: .5em;
+        margin-left: -1em;
+    }
+}
+
+// media queries
+
+@media (max-width: 1440px) {
+    .heading{
+        font-size: 5ch;
+    }
+}
+@media (max-width: 1024px) {
+    .heading{
+        font-size: 4ch;
+    }
+    .body-text{
+        font-size: 2ch;
+    }
+    .cover-img{
+        margin: 0em 3.125em 3.125em 3.125em;
+    }
+    
+}
+@media (max-width: 425px) {
+    .heading{
+        font-size: 3ch;
+        font-weight: 400;
+    }
+    .cover-img{
+        margin: 0em 1.5em 1.5em 1.5em;
+    }
+}
