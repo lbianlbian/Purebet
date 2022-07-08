@@ -106,7 +106,6 @@ function formatArray(first, second, third){
   
 }
 
-//avoid cors error: https://stackoverflow.com/questions/44405448/how-to-allow-cors-with-node-js-without-using-express
 
 const http = require('http');
 var url = require("url");
