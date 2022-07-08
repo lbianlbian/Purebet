@@ -4,18 +4,14 @@ const Base58 = require("base-58");
 var connection = new solanaWeb3.Connection("https://devnet.genesysgo.net/", "confirmed");
 var programID = new solanaWeb3.PublicKey("FxQDLqSJ2Y3Hn4vUZHVVMhzaUnvhbbhG1yiFad2uHfFy");
 
-//to round to n decimal places
+
 function round(num, places) {
     var multiplier = Math.pow(10, places);
     return Math.round(num * multiplier) / multiplier;
 }
-//parameters: id1 and id2 of game, 
-//homeOrAway is 0 if we are looking to bet on home
-//homeOrAway is 1 if we are looking to bet on away
 
-//returns: [[highest odds, stake needed, account], [second highest odds, stake needed, account], [third highest odds, stake needed, account]]
-//if there are less than 3 bets available to match, the values will be -1
-//https://docs.google.com/document/d/1LNGuQyWjken4jl_mOSTlQy8qI7l1EabmN3BsYgiG3CQ/edit?usp=sharing
+
+
 async function getOdds(id1, id2, homeOrAway){
   var b58id = Base58.encode(new Uint8Array([id1, id2]));
   var all0s = Base58.encode(new Uint8Array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
@@ -90,8 +86,7 @@ async function getOdds(id1, id2, homeOrAway){
     }
 
   }
-  //first get list current odds, address of acc, and #lamports of acc
-  //console.log([highest, secondHighest, thirdHighest]);
+  
   return [highest, secondHighest, thirdHighest];
 }
 /*
