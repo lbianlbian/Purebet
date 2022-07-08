@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import BettingSlip from "../components/BettingSlip";
 import Featured from "../components/Featured";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import "./index.scss";
 
 const IndexPage = () => {
@@ -32,7 +33,7 @@ const IndexPage = () => {
     <main>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>PureBet!</title>
+        <title>Purebet!</title>
         <link rel="icon" type="image/x-icon" href=""></link>
         <link rel="apple-touch-icon" href="/apple-favicon.png" />
       </Helmet>
@@ -48,6 +49,7 @@ const IndexPage = () => {
         closeBetSlip={closeBetSlip}
         betData={betData}
       />
+      <Footer />
     </main>
   );
 };

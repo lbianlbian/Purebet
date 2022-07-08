@@ -31,7 +31,16 @@ const phantom_connect = function () {
         globalKey = phantom.publicKey;
 
         var sig = await placeBet();
-        document.getElementById("trans-hash").innerHTML = sig;
+        sig != 0
+          ? (document.querySelector("#trans-hash").innerText =
+              "See your confirmation on the Solana Blockchain")
+          : (document.querySelector("#trans-hash").innerText = "");
+        document
+          .getElementById("trans-hash")
+          .setAttribute(
+            "href",
+            "https://explorer.solana.com/tx/" + sig + "?cluster=devnet"
+          );
       });
     } catch (err) {
       console.log("Connection Cancelled!");

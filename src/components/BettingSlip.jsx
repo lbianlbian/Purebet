@@ -144,7 +144,9 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
             transaction hash will appear below when your bet is confirmed.
           </h1>
           <div className="divider"></div>
-          <h1 id="trans-hash" className="heading"></h1>
+          <a href="" target="_blank" id="trans-hash" className="heading">
+            See your confirmation on the Solana Blockchain
+          </a>
         </div>
       </div>
     </div>

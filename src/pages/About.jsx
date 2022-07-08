@@ -18,22 +18,22 @@ const About = () => {
           the Solana blockchain, custom built from the ground up to give the
           optimal betting experience. Purebet relieves users of the stress of
           missing deposits, withdrawal delays, and account closures by working
-          seamlessly and permissionlessly on the blockchain. Users are able to
-          bet on a wide variety of sporting events, financial markets, political
-          races, and other prediction markets without needing to trust a
-          centralised entity to safeguard their personal details or custody
-          their funds. Users hold their funds in their own wallet until they
-          place a bet on an event. Once the event has concluded, any winnings
-          are made available to users immediately. Users are able to select the
-          stake they wish to place on the bet, and the odds they would like to
-          obtain. Once a bet placed by a user matches up against bets of the
-          opposing outcome from other users, the stakes are locked in the smart
-          contract until the completion of the event. Afterwards, the winners
-          are paid out automatically at the agreed odds. We believe the future
-          of sports betting and prediction markets is community-focused,
+          seamlessly and permissionlessly on the blockchain. We believe the
+          future of sports betting and prediction markets is community-focused,
           open-source, permissionless, and immutable. Purebet is designed by
           sports bettors, for sports bettors to give the simplest and smoothest
           sports betting experience possible.
+        </p>
+        <h1 className="heading">Our edge.</h1>
+        <p className="body-text">
+          We allow users to wager on their chosen events without invading their
+          privacy and collecting their personal details like traditional sports
+          betting venues. Users are able to self-custody their funds in their
+          blockchain wallet and never worry about rejected payout requests or
+          misappropriated funds. Opposing bets between different users are
+          matched automatically and locked within smart contracts. As soon as an
+          event is finished, the funds are immediately available to users with
+          winning positions.
         </p>
       </div>
     </div>

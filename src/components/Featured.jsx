@@ -32,7 +32,7 @@ const Featured = ({ toggleBetSlip }) => {
     { home: "100 Thieves", away: "FaZe Clan" },
     { home: "USC Trojans", away: "Northwestern Wildcats" },
     { home: "Los Angeles Lakers", away: "Chicago Bulls" },
-    { home: "PureBet will Win", away: "PureBet will Lose" },
+    { home: "Purebet will Win", away: "Purebet won't Win" },
     {
       home: "Bitcoin above $20K on 31st July",
       away: "Bitcoin below $20K on 31st July",
@@ -88,11 +88,11 @@ const Featured = ({ toggleBetSlip }) => {
             alt="event-image"
           ></StaticImage>
           <p className="featured-body body-text">
-            PureBet will Win
+            Purebet will Win
             <br />
             VS
             <br />
-            PureBet will Lose
+            Purebet won't Win
           </p>
         </div>
         <div className="event-item" onClick={() => toggleSlider(4)}>

@@ -228,6 +228,27 @@
     font-size: 2ch;
 }
 
+//Footer
+
+.footer-wrapper{
+    width: 100vw;
+    height: fit-content;
+    background-color: v.$a-color-2-800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3em 0em;
+}
+.footer-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer-container a{
+    text-decoration: none;
+    color: v.$l-color;
+}
+
 
 
 
@@ -261,6 +282,7 @@
     }
     .nav-container div, .nav-container a{
         text-align: center;
+        margin: .5em;
     }
     .nav-items{
         float: none;
