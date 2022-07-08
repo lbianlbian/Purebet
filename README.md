@@ -4,8 +4,8 @@
 ## Our slide deck is [here](link), and also in our repository.
 ## If you enjoy what we have built, please consider voting for us [here](link]
 ## Guide to our repository
-Lib.rs contains the on-chain Solana program.
-renameindexpendingwagers.js gets pending wagers from the program
-renameindexshowodds.js gets the current odds for an event from the program
-The src folder holds all the code for our frontend display. 
+Lib.rs contains the on-chain Solana program. <br>
+renameindexpendingwagers.js gets pending wagers from the program <br>
+renameindexshowodds.js gets the current odds for an event from the program <br>
+The src folder holds all the code for our frontend display. <br>
 # Thank you for visiting our repository!
