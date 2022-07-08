@@ -3,7 +3,6 @@ import Nav from "../components/Nav";
 import axios from "axios";
 import "./index.scss";
 import { StaticImage } from "gatsby-plugin-image";
-import solana from "@Solana/web3.js";
 
 const PendingBets = () => {
   // const [walletAcc, setWalletAcc] = useState();
