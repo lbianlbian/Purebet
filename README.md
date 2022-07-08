@@ -1,5 +1,5 @@
 # This is the repository of Purebet, which we are entering in the Mega Hackathon. Purebet is a decentralized sports betting exchange built on the Solana blockchain. Check it out here: [https://purebet.io](https://purebet.io) 
-## Video on how to use Purebet is [here](link)
+## Video on how to use Purebet is [here]( https://www.dropbox.com/s/r4pz2b2r9ilu9sb/video1939782679%20-%20Copy_1.mp4?dl=0)
 ## You will need a [Phantom Wallet](https://phantom.app) and [devnet SOL](https://solfaucet.com)
 ## Our slide deck is [here](link), and also in our repository.
 ## If you enjoy what we have built, please consider voting for us [here](link]
