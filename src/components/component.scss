@@ -63,10 +63,10 @@
 }
 .odds-slider{
     position: fixed;
-    height: 60%;
+    height: fit-content;
     width: 100%;
     background-color: v.$a-color-2-800;
-    top: 150%;
+    bottom: 150%;
     left: 0;
     border-radius: 50px 50px 0px 0px;
     display: flex;
@@ -75,9 +75,10 @@
     visibility: hidden;
     transition: top .3s ease, visibility .3s ease;
     z-index: 11;
+    padding: 2.5em 0em;
 }
 .odds-slider-open{
-    top: 40%;
+    bottom: 0%;
     visibility: visible;
 }
 .slider-content{
@@ -98,6 +99,7 @@
 }
 .row1 .bet-avail, .row2 .bet-avail{
     text-align: right;
+    font-size: 5ch;
 }
 .second-cell{
     background-color: v.$a-color-1-800;
@@ -114,7 +116,8 @@
 }
 .betting-container{
     height: 100%;
-    width: 50%;
+    width: fit-content;
+    padding: 0em 3em;
     position: fixed;
     top: 0%;
     right: -150%;
@@ -129,6 +132,9 @@
 }
 .betting-container-open{
     right: 0%;
+}
+.betting-content{
+    margin-top: 3em;
 }
 .betting-content label, .betting-content h1 {
     color: v.$l-color;
@@ -227,6 +233,14 @@
 
 // @media queries
 
+@media (max-width: 1440px) {
+    .row1 .odds, .row2 .odds, .row1 .bet-avail, .row2 .bet-avail, .row1 .heading, .row2 .heading{
+        font-size: 4ch;
+    }
+    .betting-content .heading{
+        font-size: 3ch;
+    }
+}
 @media (max-width: 1024px) {
     .nav-container{
         margin: 3.125em 3.125em;
@@ -236,6 +250,9 @@
     }
     .events-wrap{
         margin: 3.125em 0em;
+    }
+    .row1 .odds, .row2 .odds, .row1 .bet-avail, .row2 .bet-avail, .row1 .heading, .row2 .heading{
+        font-size: 3ch;
     }
 }
 @media (max-width: 425px){
@@ -257,4 +274,16 @@
     .event-item{
         width: 45%;
     }
+    .row1 .odds, .row2 .odds, .row1 .bet-avail, .row2 .bet-avail, .row1 .heading, .row2 .heading{
+        font-size: 2ch;
+    }
+    .betting-container{
+        height: fit-content;
+        width: 100%;
+        padding: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 0;
+    }
+    .betting-content{margin-top: 0;}
 }
