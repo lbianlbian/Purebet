@@ -58,7 +58,7 @@ async function pendingWagers(globalKeyString){
       odds = 1 / (1 - 1 / odds);
     }
     if(arrayEquals(backBets[x].account.data.slice(37, 69), all0s)){
-      //this is an unmatched bet
+      
       currBet.stake = round(amnt, 9);
       currBet.odds = round(odds, 2);
       currBet.isMatched = false;
@@ -88,7 +88,7 @@ async function pendingWagers(globalKeyString){
       odds = 1 / (1 - 1 / odds);
     }
     if(arrayEquals(layBets[x].account.data.slice(2, 34), all0s)){
-      //this is an unmatched bet
+      
       currBet.stake = round(amnt, 9);
       currBet.odds = round(odds, 2);
       currBet.isMatched = false;
