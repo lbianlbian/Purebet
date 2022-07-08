@@ -84,6 +84,9 @@ a{
     .cover-img{
         margin: 0em 3.125em 3.125em 3.125em;
     }
+    .about-body{
+        margin: 0em 3.125em 3.123em 3.125em;
+    }
     
 }
 @media (max-width: 425px) {
@@ -93,5 +96,8 @@ a{
     }
     .cover-img{
         margin: 0em 1.5em 1.5em 1.5em;
+    }
+    .about-body{
+        margin: 0em 1.5em 3.123em 1.5em;
     }
 }
