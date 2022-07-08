@@ -9,7 +9,7 @@ use solana_program::{
 };
 //use std::rc::Rc;
 
-/// Define the type of state stored in accounts
+
 #[derive(BorshSerialize, BorshDeserialize, Debug)]
 pub struct BetAccount {
     pub bet_id1: u8,
@@ -24,51 +24,51 @@ pub struct BetAccount {
     pub away_odds_hundredths: u8,
 }
 
-// Declare and export the program's entrypoint
+
 entrypoint!(process_instruction);
 
-// Program entrypoint's implementation
+
 pub fn process_instruction(
     _program_id: &Pubkey, // Public key of the account the hello world program was loaded into
     accounts: &[AccountInfo], // The account to say hello to
     instruction_data: &[u8],
 ) -> ProgramResult {
 
-    // Iterating accounts is safer than indexing
+   
     let accounts_iter = &mut accounts.iter();
     let account = next_account_info(accounts_iter)?;
     let mut bet_acc = BetAccount::try_from_slice(&account.data.borrow())?; 
     let admin_addr:[u8; 32] = [84, 91, 46, 17, 165, 225, 233, 73, 109, 40, 130, 12, 76, 161, 13, 84, 164, 105, 81, 226, 102, 177, 224, 220, 39, 75, 11, 129, 127, 28, 172, 220];
     let all_zeroes:[u8; 32] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-    //exact match
+   
     if instruction_data.len() == 32 && accounts.len() == 2{
         let temp_fund_holder = next_account_info(accounts_iter)?;
         let curr_balance = **account.try_borrow_lamports()?;
-        msg!("Started Bet Acc lamports: {}", curr_balance);
+        
         let match_balance = **temp_fund_holder.try_borrow_lamports()?;
-        msg!("Fund Holder Acc lamports: {}", match_balance);
+       
         let mut odds = 0.0;
 
         if bet_acc.home_odds_ones == 0{
-            msg!("home odds are empty");
+            
             odds = bet_acc.away_odds_ones as f32;
             odds += (bet_acc.away_odds_tenths as f32) / 10.0;
             odds += (bet_acc.away_odds_hundredths as f32) / 100.0;
         }
 
         if bet_acc.away_odds_ones == 0{
-            msg!("away odds are empty");
+            
             odds = bet_acc.home_odds_ones as f32;
             odds += (bet_acc.home_odds_tenths as f32) / 10.0;
             odds += (bet_acc.home_odds_hundredths as f32) / 100.0;
         }
-        msg!("Odds to match: {}", odds);
+        
         let lamports_needed = ((curr_balance as f32) * (odds - 1.0)) as u64;
-        msg!("temp fund holder must have: {} lamports", lamports_needed);
+        
 
         if match_balance > lamports_needed || (lamports_needed - match_balance < 1000 && lamports_needed >= match_balance) {
-            msg!("the temp fund holder has the correct amount of lamports");
+           
             **temp_fund_holder.try_borrow_mut_lamports()? -= match_balance;
             **account.try_borrow_mut_lamports()? += match_balance;
         
@@ -87,14 +87,11 @@ pub fn process_instruction(
             }
         }
     }
-    //partial match
+    
     if instruction_data.len() == 1 && instruction_data[0] == 4 && accounts.len() == 2{
         let matching_acc = next_account_info(accounts_iter)?;
         let mut matching_bet_acc = BetAccount::try_from_slice(&matching_acc.data.borrow())?;
-        msg!("original bet acc id1 is: {}", bet_acc.bet_id1);
-        msg!("original bet acc id2 is: {}", bet_acc.bet_id2);
-        msg!("matcher bet acc id1 is: {}", matching_bet_acc.bet_id1);
-        msg!("matcher bet acc id2 is; {}", matching_bet_acc.bet_id2);
+        
         if (matching_bet_acc.bet_id1 == bet_acc.bet_id1) && (matching_bet_acc.bet_id2 == bet_acc.bet_id2){
             let mut bet_acc_odds = 0.0;
             //let mut valid_acc = false;
@@ -116,17 +113,17 @@ pub fn process_instruction(
                 }
             }
 
-            msg!("odds of the original bet acc are: {}", bet_acc_odds);
+           
         
             //if bet_acc.
             let curr_balance = **account.try_borrow_lamports()?;
-            msg!("curr_balance is {} lamports", curr_balance);
+            
             let lamports_needed = ((curr_balance as f32) * (bet_acc_odds - 1.0)) as u64;
-            msg!("lamports_needed is {} lamports", lamports_needed);
+            
             let matcher_balance = **matching_acc.try_borrow_lamports()?;
-            msg!("matcher_balance is {} lamports", matcher_balance);
+            
             let to_move = curr_balance * matcher_balance / lamports_needed;
-            msg!("to_move is {} lamports", to_move);
+            
             **account.try_borrow_mut_lamports()? -= to_move;
             **matching_acc.try_borrow_mut_lamports()? += to_move;
 
@@ -135,7 +132,7 @@ pub fn process_instruction(
         }
     }
     
-    //cancel bet
+
     if instruction_data.len() == 1 && instruction_data[0] == 5 && accounts.len() == 2{
         let receiver = next_account_info(accounts_iter)?;
         let receiver_bytes = accounts[1].signer_key().unwrap().to_bytes();
@@ -148,7 +145,7 @@ pub fn process_instruction(
         }
     }
 
-    //grading or refunding
+    
     if instruction_data.len() == 1 && accounts.len() == 3{
         let receiver = next_account_info(accounts_iter)?;
         let receiver_bytes = accounts[1].unsigned_key().to_bytes();
@@ -180,12 +177,9 @@ pub fn process_instruction(
         }
     }
 
-    //pushing
+
     if instruction_data.len() == 1 && instruction_data[0] == 3 && accounts.len() == 4{
-        //acc 0 is bet acc
-        //acc 1 is receiver 1
-        //acc 2 is receiver 2
-        //acc 3 is admin
+       
         let receiver1 = next_account_info(accounts_iter)?;
         let receiver2 = next_account_info(accounts_iter)?;
         
@@ -198,7 +192,7 @@ pub fn process_instruction(
             
             let mut bet_acc_odds = 0.0;
             if bet_acc.home_odds_ones == 0{
-                //the away odds are filled in
+                
                 bet_acc_odds = bet_acc.away_odds_ones as f32;
                 bet_acc_odds += (bet_acc.away_odds_tenths as f32) / 10.0;
                 bet_acc_odds += (bet_acc.away_odds_hundredths as f32) / 100.0;
@@ -208,7 +202,7 @@ pub fn process_instruction(
             }
 
             if bet_acc.away_odds_ones == 0{
-                //the home odds are filled in
+                
                 bet_acc_odds = bet_acc.home_odds_ones as f32;
                 bet_acc_odds += (bet_acc.home_odds_tenths as f32) / 10.0;
                 bet_acc_odds += (bet_acc.home_odds_hundredths as f32) / 100.0;
@@ -221,7 +215,7 @@ pub fn process_instruction(
     }
 
 
-    //starting bet
+    
     if instruction_data.len() == 38 && accounts.len() == 1{
     
         let mut starting_wallet:[u8;32] = [0;32];
