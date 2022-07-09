@@ -2,7 +2,7 @@
 ## Video on how to use Purebet is [here](https://www.dropbox.com/s/r4pz2b2r9ilu9sb/video1939782679%20-%20Copy_1.mp4?dl=0)
 ## You will need a [Phantom Wallet](https://phantom.app) and [devnet SOL](https://solfaucet.com)
 ## Our slide deck is [here](https://docs.google.com/presentation/d/1MJtsfr6EWBLVjcTAjV-kkh3lqhjj9fhckuscPt9FeIk/edit?usp=sharing), and also in our repository. It is the file named Copy of purebet hackathon.pdf.
-## If you enjoy what we have built, please consider voting for us [here](link)
+## If you enjoy what we have built, please consider voting for us [here](https://www.metajam.studio/project/purebet)
 ## Guide to our repository
 Lib.rs contains the on-chain Solana program. <br>
 renameindexpendingwagers.js gets pending wagers from the program <br>
