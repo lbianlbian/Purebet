@@ -84,7 +84,7 @@ async function pendingWagers(globalKeyString){
     var amnt = layBets[x].account.lamports / 1000000000;
     var odds = layBets[x].account.data[69] + layBets[x].account.data[70] / 10 + layBets[x].account.data[71];
     if(odds == 0){
-      odds = backBets[x].account.data[34] + backBets[x].account.data[35] / 10 + backBets[x].account.data[36];
+      odds = layBets[x].account.data[34] + layBets[x].account.data[35] / 10 + layBets[x].account.data[36];
       odds = 1 / (1 - 1 / odds);
     }
     if(arrayEquals(layBets[x].account.data.slice(2, 34), all0s)){
