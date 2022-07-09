@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const HowToUse = () => {
   return (
@@ -17,14 +18,21 @@ const HowToUse = () => {
           <li className="body-text">
             To use Purebet, simply connect your Solana blockchain wallet to the
             website (for the hackathon, only Phantom on{" "}
-            <a href="https://docs.realms.today/phantom-wallet" target="_blank">
-              devnet
-            </a>
+            <span>
+              <a
+                href="https://docs.realms.today/phantom-wallet"
+                target="_blank"
+              >
+                devnet
+              </a>
+            </span>{" "}
             is supported), load it up with your funds (for the hackathon, only
-            devnet SOL is supported;
-            <a href="https://solfaucet.com/" target="_blank">
-              faucet here
-            </a>
+            devnet SOL is supported;{" "}
+            <span>
+              <a href="https://solfaucet.com/" target="_blank">
+                faucet here
+              </a>
+            </span>
             ), and browse the wide range of markets (for the hackathon, a
             selection of imaginary events are offered).
           </li>
@@ -59,11 +67,15 @@ const HowToUse = () => {
             each time is 2 SOL.
           </li>
           <li className="body-text">
+            Please note: It may take 10 seconds for available odds to display
+          </li>
+          <li className="body-text">
             We would appreciate it for this hackathon if you made bets with
             stake of 0.1, since this would help our orderbook stay liquid.
           </li>
         </ul>
       </div>
+      <Footer />
     </div>
   );
 };
