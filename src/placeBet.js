@@ -30,11 +30,12 @@ const phantom_connect = function () {
       phantom.on("connect", async () => {
         globalKey = phantom.publicKey;
 
-        var sig = await placeBet();
-        sig != 0
-          ? (document.querySelector("#trans-hash").innerText =
-              "See your confirmation on the Solana Blockchain")
-          : (document.querySelector("#trans-hash").innerText = "");
+        var sig = 0;
+        sig = await placeBet();
+        sig == 0
+          ? (document.querySelector("#trans-hash").innerText = "")
+          : (document.querySelector("#trans-hash").innerText =
+              "See your confirmation on the Solana Blockchain");
         document
           .getElementById("trans-hash")
           .setAttribute(

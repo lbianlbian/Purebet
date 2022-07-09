@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="f-ele1">
           <a
-            href="http://"
+            href="https://discord.com/invite/3UWkCEQGka"
             target="_blank"
             rel="noopener noreferrer"
             className="heading"
@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         <div className="f-ele2">
           <a
-            href="http://"
+            href="https://twitter.com/Purebet_io"
             target="_blank"
             rel="noopener noreferrer"
             className="heading"
@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
         <div className="f-ele3">
           <a
-            href="http://"
+            href="https://www.metajam.studio/project/purebet"
             target="_blank"
             rel="noopener noreferrer"
             className="heading"

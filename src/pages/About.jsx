@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const About = () => {
   return (
@@ -36,6 +37,7 @@ const About = () => {
           winning positions.
         </p>
       </div>
+      <Footer />
     </div>
   );
 };

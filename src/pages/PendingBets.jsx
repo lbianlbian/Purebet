@@ -3,6 +3,7 @@ import Nav from "../components/Nav";
 import axios from "axios";
 import "./index.scss";
 import { StaticImage } from "gatsby-plugin-image";
+import Footer from "../components/Footer";
 
 const PendingBets = () => {
   // const [walletAcc, setWalletAcc] = useState();
@@ -160,6 +161,7 @@ const PendingBets = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -33,7 +33,7 @@ const IndexPage = () => {
     <main>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Purebet!</title>
+        <title>Purebet</title>
         <link rel="icon" type="image/x-icon" href=""></link>
         <link rel="apple-touch-icon" href="/apple-favicon.png" />
       </Helmet>

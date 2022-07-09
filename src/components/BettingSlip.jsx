@@ -30,6 +30,7 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
     e.preventDefault();
     phantom_connect();
     setSuccess(true);
+    document.querySelector("#trans-hash").innerText = "";
     closeBetSlip();
   };
   useEffect(() => {
@@ -139,13 +140,10 @@ const BettingSlip = ({ isBetSlipOpen, closeBetSlip, betData }) => {
       ></div>
       <div className={`success-popup ${success && "success-popup-open"}`}>
         <div className="success-msg">
-          <h1 className="heading">
-            Please place your bet on the Phantom Wallet popup. Your Solana
-            transaction hash will appear below when your bet is confirmed.
-          </h1>
+          <h1 className="heading">Your bet confirmation will appear below.</h1>
           <div className="divider"></div>
           <a href="" target="_blank" id="trans-hash" className="heading">
-            See your confirmation on the Solana Blockchain
+            See your bet confirmation on the Solana blockchain.
           </a>
         </div>
       </div>
